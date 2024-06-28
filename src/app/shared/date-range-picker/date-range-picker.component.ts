@@ -1,4 +1,4 @@
-import { Component, forwardRef, OnInit } from '@angular/core';
+import { Component, forwardRef, Input, OnInit } from '@angular/core';
 import {ControlValueAccessor,NG_VALUE_ACCESSOR,ReactiveFormsModule,FormBuilder,FormGroup} from '@angular/forms';
 import { MatNativeDateModule, DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -38,6 +38,7 @@ registerLocaleData(localeEnGb);
   ],
 })
 export class DateRangePickerComponent implements OnInit, ControlValueAccessor {
+  @Input() label: string = "";
   range!: FormGroup;
 
   private onChange: (value: any) => void = () => {};
