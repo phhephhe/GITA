@@ -1,12 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormArray,
-  FormBuilder,
-  FormGroup,
-  FormsModule,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import {FormArray,FormBuilder,FormGroup,FormsModule,ReactiveFormsModule,} from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -16,6 +9,10 @@ import {MatSelectModule} from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
+import { DateRangePickerComponent } from '../../shared/date-range-picker/date-range-picker.component';
+import { InputComponent } from '../../shared/input/input.component';
+import { TextareaComponent } from '../../shared/textarea/textarea.component';
+import { DropdownComponent } from '../../shared/dropdown/dropdown.component';
 @Component({
   selector: 'dga-job-experience',
   standalone: true,
@@ -30,14 +27,19 @@ import { CommonModule } from '@angular/common';
     ReactiveFormsModule,
     MatDatepickerModule,
     MatSelectModule,
-    MatIconModule
+    MatIconModule,
+    DateRangePickerComponent,
+    InputComponent,
+    TextareaComponent,
+    DropdownComponent
   ],
   templateUrl: './job-experience.component.html',
   styleUrl: './job-experience.component.scss'
 })
 export class JobExperienceComponent implements OnInit{
   experienceForm!: FormGroup;
-
+  Positions = ['Junior', 'Middle', 'Senior'];
+  
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
@@ -48,7 +50,7 @@ export class JobExperienceComponent implements OnInit{
 
   addJob() {
     const job = this.fb.group({
-      companyName: ['', Validators.required],
+      companyName: [''],
       companyWebsite: [''],
       companyDescription: [''],
       positions: this.fb.array([]),
@@ -62,11 +64,10 @@ export class JobExperienceComponent implements OnInit{
 
   addPosition(jobIndex: number) {
     const position = this.fb.group({
-      positionName: ['', Validators.required],
-      positionLevel: ['', Validators.required],
+      positionName: [''],
+      positionLevel: [''],
       positionDescription: [''],
-      startDate: [''],
-      endDate: [''],
+      start_end_dates: ['']
     });
     this.positions(jobIndex).push(position);
   }
@@ -83,8 +84,6 @@ export class JobExperienceComponent implements OnInit{
     return this.jobs.at(jobIndex).get('positions') as FormArray;
   }
 
-  getPositionLevels() {
-    return ['Junior', 'Middle', 'Senior'];
-  }
+
 
 }

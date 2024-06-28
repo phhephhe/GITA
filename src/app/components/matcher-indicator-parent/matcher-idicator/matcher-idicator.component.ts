@@ -3,11 +3,13 @@ import { Component, Input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
+import { compareTwoStrings } from 'string-similarity';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @Component({
   selector: 'dga-matcher-idicator',
   standalone: true,
-  imports: [MatCardModule, MatButtonModule, CommonModule, MatListModule],
+  imports: [MatCardModule, MatButtonModule, CommonModule, MatListModule,MatProgressBarModule],
   templateUrl: './matcher-idicator.component.html',
   styleUrl: './matcher-idicator.component.scss'
 })
@@ -21,11 +23,8 @@ export class MatcherIdicatorComponent {
   }
 
   private getPercentageMatch(item: string): number {
-    const maxLength = Math.max(this.value1.length, item.length);
-    if (maxLength === 0) {
-      return 0;
-    }
-    const matchCount = this.value1.split('').filter((char, index) => char === item[index]).length;
-    return (matchCount / maxLength) * 100;
+    const similarity = compareTwoStrings(this.value1, item);
+    return similarity * 100;
   }
+  
 }

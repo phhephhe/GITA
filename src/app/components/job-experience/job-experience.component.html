@@ -1,55 +1,39 @@
-<div class="button-container">
-    <button mat-raised-button color="accent" (click)="addJob()">Add Job</button>
-  </div>
-<form [formGroup]="experienceForm">
-    <div formArrayName="jobs" class="flex flex-col items-center">
-      <div *ngFor="let job of jobs.controls; let i = index" [formGroupName]="i" class="flex flex-col w-50 border border-gray-300 bg-gray-100 rounded-lg p-4">
-        <h3 mat-subheader>Job {{ i + 1 }}</h3>
-  
-        <mat-form-field>
-          <mat-label>Company Name</mat-label>
-          <input matInput formControlName="companyName" placeholder="Company Name">
-        </mat-form-field>
-  
-        <mat-form-field>
-          <mat-label>Company Website</mat-label>
-          <input matInput formControlName="companyWebsite" placeholder="Company Website">
-        </mat-form-field>
-  
-        <mat-form-field>
-          <mat-label>Company Description</mat-label>
-          <textarea matInput formControlName="companyDescription" placeholder="Company Description"></textarea>
-        </mat-form-field>
-  
-        <button mat-raised-button color="primary" (click)="addPosition(i)">Add Position</button>
-  
-        <div formArrayName="positions" class="flex flex-wrap">
-          <div class="flex flex-col w-50" *ngFor="let position of positions(i).controls; let j = index" [formGroupName]="j">
-            <h4 mat-subheader>Position {{ j + 1 }}</h4>
-  
-            <mat-form-field>
-              <mat-label>Position Name</mat-label>
-              <input matInput formControlName="positionName" placeholder="Position Name">
-            </mat-form-field>
-  
-            <mat-form-field>
-              <mat-label>Position Level</mat-label>
-              <mat-select formControlName="positionLevel" placeholder="Position Level">
-                <mat-option *ngFor="let level of getPositionLevels()" [value]="level">{{ level }}</mat-option>
-              </mat-select>
-            </mat-form-field>
-  
-            <mat-form-field>
-              <mat-label>Position Description</mat-label>
-              <textarea matInput formControlName="positionDescription" placeholder="Position Description"></textarea>
-            </mat-form-field>
-  
-            <button mat-raised-button color="warn" (click)="removePosition(i, j)">Remove Position</button>
+
+
+<form [formGroup]="experienceForm" class="mt-4">
+  <div formArrayName="jobs" class="flex flex-col items-center">
+    <div *ngFor="let job of jobs.controls; let i = index" [formGroupName]="i"
+         class="flex flex-col w-1/2 border border-gray-300 bg-gray-100 rounded-lg p-4 mt-4">
+
+      <h3 mat-subheader>Job {{ i + 1 }}</h3>
+
+      <dga-input formControlName="companyName" [label]="'Company Name'" [placeholder]="'Enter company name'"></dga-input>
+      <dga-input formControlName="companyWebsite" [label]="'Company Website'" [placeholder]="'Link company website'"></dga-input>
+      <dga-textarea formControlName="companyDescription" [label]="'Company Description'" [placeholder]="'Enter company description'"></dga-textarea>
+
+      <button mat-raised-button color="primary" class="mt-2" (click)="addPosition(i)">Add Position</button>
+
+      <div formArrayName="positions" class="flex flex-wrap gap-2 w-100 mt-3 justify-center">
+        <div [formGroupName]="j" *ngFor="let position of positions(i).controls; let j = index" class="flex flex-col" style="width: 90%;">
+
+          <h4 mat-subheader>Position {{ j + 1 }}</h4>
+
+          <dga-input formControlName="positionName" [label]="'Position Name'" [placeholder]="'Enter position name'"></dga-input>
+          
+          <div class="flex gap-4 w-full">
+              <dga-dropdown class="w-1/2" formControlName="positionLevel" [data]="Positions" [placeholder]="'Position Level'" [label]="'Select a position'"></dga-dropdown>
+              <app-date-range-picker class="w-1/2" formControlName="start_end_dates" [label]="'Select date range'"></app-date-range-picker>
           </div>
+          <dga-textarea formControlName="positionDescription" [label]="'Position Description'" [placeholder]="'Enter position description'"></dga-textarea>
+          
+          <button mat-raised-button color="warn" class="mt-2" (click)="removePosition(i, j)">Remove Position</button>
+
         </div>
       </div>
+
     </div>
-  
-  
-  </form>
-  
+  </div>
+</form>
+<div class="button-container text-center mt-2">
+  <button mat-raised-button color="accent" (click)="addJob()">Add Job</button>
+</div>

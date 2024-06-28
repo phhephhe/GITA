@@ -1,14 +1,13 @@
 <div class="movies-container">
-    <div class="search">
-        <input class="searchTerm" [(ngModel)]="searchTerm" placeholder="Enter movie title" />
-        <button mat-raised-button color="primary" (click)="search()">Search</button>
-    </div>
-
-    <ng-container *ngIf="movies$ | async as movies; else noMovies">
+    <form class="w-full relative flex justify-center mt-4 mb-4">
+        <input class="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500 shadow-sm w-full sm:w-auto" [(ngModel)]="searchTerm" [ngModelOptions]="{ standalone: true }" placeholder="Enter movie title" />
+        <button (click)="search()" type="subtmit" class="bg-white border border-blue-500 text-blue-500 px-4 py-2 rounded-lg shadow-sm hover:bg-blue-500 hover:text-white transition-colors duration-300" >Search</button>
+    </form>
+    <ng-container *ngIf="movies$ | async as movies">
         <div class="movies-wrapper">
             <ng-container *ngFor="let movie of movies">
                 <mat-card class="movie-card">
-                    <img mat-card-image [src]="movie?.image?.url" alt="Movie Poster" />
+                    <img mat-card-image [src]="movie?.image?.url ? movie?.image?.url : '../../../assets/photos/matcher-bg.jpg'" alt="Movie Poster" />
                     <mat-card-content>
                         <h2 mat-card-title>{{ movie.title }}</h2>
                         <p>Year: {{ movie.year }}</p>
@@ -18,12 +17,5 @@
             </ng-container>
         </div>
     </ng-container>
-    <ng-template #noMovies>
-        <!-- <p>Nothing found</p> -->
-    </ng-template>
 </div>
 
-
-<ng-container *ngIf="LoaderService.isLoading | async">
-    <h1>loading...</h1>
-</ng-container>

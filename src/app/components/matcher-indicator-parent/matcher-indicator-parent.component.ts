@@ -10,11 +10,5 @@ import { MatcherIdicatorComponent } from './matcher-idicator/matcher-idicator.co
 })
 export class MatcherIndicatorParentComponent {
   value1: string = 'ქონება';
-  value2: string[] = [
-    'ქონება',
-    'ქონ',
-    'ქონების გასხვისება',
-    'საქონლის გასხვისება',
-    '',
-  ];
+  value2: string[] = ['ქონება','ქონ','ქონების გასხვისება','საქონლის გასხვისება','',];
 }
