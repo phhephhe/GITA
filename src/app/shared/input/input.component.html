@@ -1,4 +1,7 @@
 <mat-form-field style="width: 100%">
-    <mat-label>{{label}}</mat-label>
+    <mat-label>{{ label }}</mat-label>
     <input matInput [value]="value" (input)="inputChange($event)" [placeholder]="placeholder">
 </mat-form-field>
+<mat-error *ngIf="inValid">
+    Website must start with 'www' and end with '.com' or '.ge'.
+</mat-error>

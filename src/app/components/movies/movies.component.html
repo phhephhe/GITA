@@ -7,7 +7,7 @@
         <div class="movies-wrapper">
             <ng-container *ngFor="let movie of movies">
                 <mat-card class="movie-card">
-                    <img mat-card-image [src]="movie?.image?.url ? movie?.image?.url : '../../../assets/photos/matcher-bg.jpg'" alt="Movie Poster" />
+                    <img mat-card-image [src]="movie?.image?.url" alt="Movie Poster" />
                     <mat-card-content>
                         <h2 mat-card-title>{{ movie.title }}</h2>
                         <p>Year: {{ movie.year }}</p>

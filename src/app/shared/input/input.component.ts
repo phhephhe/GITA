@@ -1,13 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, forwardRef } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'dga-input',
   standalone: true,
-  imports: [MatFormFieldModule,MatInputModule,ReactiveFormsModule,CommonModule],
+  imports: [MatInputModule,CommonModule,MatFormFieldModule],
   templateUrl: './input.component.html',
   styleUrl: './input.component.scss',
   providers:[{
@@ -20,7 +20,7 @@ export class InputComponent implements ControlValueAccessor{
   @Input() value: string = '';
   @Input() placeholder: string = '';
   @Input() label: string = '';
-  @Input() isRequired: boolean = true;
+  @Input() inValid: boolean = false;
 
   onChange = (value: any) => {};
 
@@ -31,12 +31,10 @@ export class InputComponent implements ControlValueAccessor{
   }
 
   writeValue(obj: any): void {
-    // value recive
     this.value = obj
   }
 
   registerOnChange(fn: any): void {
-     // value change
     this.onChange = fn
   }
 

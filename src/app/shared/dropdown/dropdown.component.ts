@@ -1,21 +1,12 @@
-import { CommonModule, NgFor } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component, Input, forwardRef } from '@angular/core';
-import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'dga-dropdown',
   standalone: true,
-  imports: [
-    FormsModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatInputModule,
-    CommonModule
-  ],
+  imports: [MatSelectModule,CommonModule],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: forwardRef(() => DropdownComponent),
@@ -46,7 +37,4 @@ export class DropdownComponent implements ControlValueAccessor {
   }
 
   registerOnTouched(fn: any): void {}
-
-  setDisabledState?(isDisabled: boolean): void {}
-
 }

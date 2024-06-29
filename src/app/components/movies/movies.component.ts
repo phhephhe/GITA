@@ -1,14 +1,10 @@
 import { Component } from '@angular/core';
 import { ImdbService } from '../../services/imdb.service';
-import { AsyncPipe, CommonModule, JsonPipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
-import { MatListModule } from '@angular/material/list';
-import { Observable } from 'rxjs';
-import { LoaderService } from '../../services/loader.service';
+import { Observable, catchError, throwError } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'dga-movies',
@@ -16,26 +12,25 @@ import { LoaderService } from '../../services/loader.service';
   providers: [ImdbService],
   imports: [
     MatCardModule,
-    MatButtonModule,
     CommonModule,
-    MatListModule,
-    MatInputModule,
-    FormsModule,
-    MatIconModule,
-    AsyncPipe,
-    JsonPipe
+    FormsModule
   ],
   templateUrl: './movies.component.html',
   styleUrl: './movies.component.scss',
 })
 export class MoviesComponent {
-  searchTerm: any = '';
+  searchTerm: string = '';
   movies$!: Observable<any[]>;
 
-  constructor(private ImdbService: ImdbService, public LoaderService:LoaderService) {}
+  constructor(private ImdbService: ImdbService) { }
 
   search() {
     if (this.searchTerm.trim() === '') return;
-    this.movies$ = this.ImdbService.searchMovies(this.searchTerm.trim());
+    this.movies$ = this.ImdbService.searchMovies(this.searchTerm.trim()).pipe(
+      catchError((error: HttpErrorResponse) => {
+        alert('ERROR : ' + error.error.message);
+        return throwError(error);
+      })
+    )
   }
 }

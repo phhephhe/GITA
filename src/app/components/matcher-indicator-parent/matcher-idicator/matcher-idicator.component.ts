@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { compareTwoStrings } from 'string-similarity';
@@ -9,7 +8,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 @Component({
   selector: 'dga-matcher-idicator',
   standalone: true,
-  imports: [MatCardModule, MatButtonModule, CommonModule, MatListModule,MatProgressBarModule],
+  imports: [MatCardModule,CommonModule, MatListModule,MatProgressBarModule],
   templateUrl: './matcher-idicator.component.html',
   styleUrl: './matcher-idicator.component.scss'
 })
