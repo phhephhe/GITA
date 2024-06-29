@@ -8,7 +8,7 @@
       <h3 mat-subheader>Job {{ i + 1 }}</h3>
 
       <dga-input formControlName="companyName" [label]="'Company Name'" [placeholder]="'Enter company name'"></dga-input>
-      <dga-input formControlName="companyWebsite" [label]="'Company Website'" [placeholder]="'Link company website'"></dga-input>
+      <dga-input [inValid]="companyWebsiteInvalid(i)" formControlName="companyWebsite" [label]="'Company Website'" [placeholder]="'Link company website'"></dga-input>
       <dga-textarea formControlName="companyDescription" [label]="'Company Description'" [placeholder]="'Enter company description'"></dga-textarea>
 
       <button mat-raised-button color="primary" class="mt-2" (click)="addPosition(i)">Add Position</button>
