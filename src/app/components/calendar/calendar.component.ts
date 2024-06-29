@@ -14,7 +14,7 @@ import { MatCalendarCellCssClasses, MatDatepickerModule } from '@angular/materia
 
 export class CalendarComponent {
 
-  selected: Date | null =new Date();
+  selected: Date | null = new Date();
 
   dateClass(date: Date): MatCalendarCellCssClasses {
     const classes = [];
