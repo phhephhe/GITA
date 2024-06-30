@@ -73,9 +73,8 @@ export class JobExperienceComponent implements OnInit{
 
   companyWebsiteInvalid(index: number): any {
     const companyWebsiteControl = this.jobs.at(index).get('companyWebsite');
-    console.log('Control:', companyWebsiteControl?.value);
-    console.log('Errors:', companyWebsiteControl?.errors);
-    return companyWebsiteControl?.errors?.['invalidWebsite'];
+
+    return companyWebsiteControl?.errors?.['invalidWebsite'] &&  companyWebsiteControl?.dirty;
   }
   
 

@@ -1,7 +1,10 @@
-<mat-form-field style="width: 100%">
-    <mat-label>{{ label }}</mat-label>
-    <input matInput [value]="value" (input)="inputChange($event)" [placeholder]="placeholder">
-</mat-form-field>
-<mat-error *ngIf="inValid">
-    Website must start with 'www' and end with '.com' or '.ge'.
-</mat-error>
+<div class="relative">
+    <mat-form-field style="width: 100%">
+      <mat-label>{{ label }}</mat-label>
+      <input matInput [value]="value" (input)="inputChange($event)" [placeholder]="placeholder">
+    </mat-form-field>
+    <small *ngIf="inValid" class="p-1 absolute left-0 text-red-500" style="bottom: -5px">
+      Should start 'www' and end '.com' or '.ge'. 
+    </small>
+  </div>
+  
