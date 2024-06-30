@@ -1,27 +1,39 @@
-# DGATask
+მიმოხილვა: 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.5.
+Angular აპლიკაცია V(18) იყენებს Angular Material UI კომპონენტებისთვის და Tailwind CSS სტილისთვის.
+თითოეული თასქისთვის შექმნილი არის Standalone კომპონენტები, რომლებიც ზარმაცად იტვირთება შესაბამის URL-ზე. 
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1. სამუშაო გამოცდილების ფორმა.
 
-## Code scaffolding
+-მომხმარებლებს შეუძლიათ დინამიურად დაამატონ და წაშალონ სამუშაოები და პოზიციები.
+თითოეული ინფუთი არის Reusable და იყენებს Control Value Accessor_ს იმისთვის რომ გახდეს ფორმის ნაწილი.
+ვებსაიტის ინფუთზე მორგებულია Custom Validator, რომელიც ამოწმებს მისი მნიშვნელობა,
+იწყება თუ არა - 'www.' და მთავრდება '.com' ან '.ge'
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+2.IMDB API ინტეგრაცია.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+-IMDB API-დან გვაქვს საშუალება წამოვიღოთ ფილმები ძებნის ფუნქციონალით.
+გამოყენებულია ინტერცეპტორი რომელიც რექვესთს ამატებს ტოკენს.
+*Note: *ბევრი რექვესთის გამო შეიძლება ტოკენი იყოს ვადაგასული და მისი ამოცვლა გახდეს საჭირო
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+3.თარიღის ფორმატი  HH:mm:ss MMM dd yyyy.
 
-## Running end-to-end tests
+-შექმნილია Custom Pipe რომელი მიღებულ ინფუთს ამოწმებს არის თუ არა თარიღი
+და შემდეგ მას უკეთებს ტრანსფორმაციას მოცემული ფორმატის მიხედვით რაშიც გამოყენებულია
+Moment.js: ბიბლიოთეკა.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+4.კალენდარი.
 
-## Further help
+-კომპონენტი გამოსახავს მიმდინარე კალენდარულ თვეს, გვაჩვენებს მიმდინარე დღეს
+და წინასწარ განსაზღვრულ დასვენების დღეებს ხდის თვალსაჩინოს.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+5.სიტყვების შედარება
+
+-მოცემული სტრინგი ედრება მასივში არსებულ ყველა სტრინგ და შედეგად გამოგვაქვს,
+თუ რამდენი პროცენტი ემთხვევა ის მათ. ამისთვის გამოყენებულია ComapareTwoString 
+NPM package, ხოლო მისი პროცენტული გამოტანის და თვალსაჩინოებისთვის 
+Angular Material Progress bar. 
+
