@@ -1,13 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'dga-input',
   standalone: true,
-  imports: [MatInputModule,CommonModule,MatFormFieldModule],
+  imports: [MatInputModule,CommonModule],
   templateUrl: './input.component.html',
   styleUrl: './input.component.scss',
   providers:[{

@@ -16,7 +16,7 @@ import { MatSelectModule } from '@angular/material/select';
   styleUrl: './dropdown.component.scss'
 })
 export class DropdownComponent implements ControlValueAccessor {
-  @Input() data: any[] = [];
+  @Input() data: string[] = [];
   @Input() label: string = '';
   @Input() placeholder: string = '';
 

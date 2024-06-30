@@ -2,7 +2,6 @@ import { Component, forwardRef, Input, OnInit } from '@angular/core';
 import {ControlValueAccessor,NG_VALUE_ACCESSOR,ReactiveFormsModule,FormBuilder,FormGroup} from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
 @Component({
@@ -10,13 +9,7 @@ import { MatInputModule } from '@angular/material/input';
   templateUrl: './date-range-picker.component.html',
   styleUrls: ['./date-range-picker.component.scss'],
   standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    MatDatepickerModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatNativeDateModule,
-  ],
+  imports: [ReactiveFormsModule,MatDatepickerModule,MatInputModule,MatNativeDateModule],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,

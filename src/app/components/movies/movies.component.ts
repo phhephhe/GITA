@@ -10,11 +10,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   selector: 'dga-movies',
   standalone: true,
   providers: [ImdbService],
-  imports: [
-    MatCardModule,
-    CommonModule,
-    FormsModule
-  ],
+  imports: [MatCardModule,CommonModule,FormsModule],
   templateUrl: './movies.component.html',
   styleUrl: './movies.component.scss',
 })
