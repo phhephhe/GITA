@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MatcherIdicatorComponent } from './matcher-idicator/matcher-idicator.component';
 
 @Component({
-  selector: 'dga-matcher-indicator-parent',
+  selector: 'GITA-matcher-indicator-parent',
   standalone: true,
   imports: [MatcherIdicatorComponent],
   templateUrl: './matcher-indicator-parent.component.html',

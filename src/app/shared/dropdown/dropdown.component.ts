@@ -4,7 +4,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 
 @Component({
-  selector: 'dga-dropdown',
+  selector: 'GITA-dropdown',
   standalone: true,
   imports: [MatSelectModule,CommonModule],
   providers: [{

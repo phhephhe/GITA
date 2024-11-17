@@ -10,7 +10,7 @@ import { TextareaComponent } from '../../shared/textarea/textarea.component';
 import { DropdownComponent } from '../../shared/dropdown/dropdown.component';
 import { websiteValidator } from '../../validators/website.validator';
 @Component({
-  selector: 'dga-job-experience',
+  selector: 'GITA-job-experience',
   standalone: true,
   imports: [
     CommonModule,MatFormFieldModule,

@@ -3,7 +3,7 @@ import { MatCardModule } from '@angular/material/card';
 import { CustomDatePipe } from '../../pipes/custom-date.pipe';
 
 @Component({
-  selector: 'dga-date',
+  selector: 'GITA-date',
   standalone: true,
   imports: [CustomDatePipe,MatCardModule],
   templateUrl: './date.component.html',

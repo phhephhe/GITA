@@ -1,39 +1,36 @@
-მიმოხილვა: 
+Overview:
 
-Angular აპლიკაცია V(18) იყენებს Angular Material UI კომპონენტებისთვის და Tailwind CSS სტილისთვის.
-თითოეული თასქისთვის შექმნილი არის Standalone კომპონენტები, რომლებიც ზარმაცად იტვირთება შესაბამის URL-ზე. 
+Angular app V(18) uses Angular Material for UI components and Tailwind CSS styling.
+For each task, there are standalone components that are lazily loaded on the corresponding URL.
 
+1. Work Experience Form.
 
-1. სამუშაო გამოცდილების ფორმა.
+-Users can dynamically add and remove jobs and positions.
+Each input is Reusable and uses Control Value Accessor_ to become part of the form.
+A Custom Validator is applied to the website input, which checks whether its value
+starts with 'www.' and ends with '.com' or '.ge'
 
--მომხმარებლებს შეუძლიათ დინამიურად დაამატონ და წაშალონ სამუშაოები და პოზიციები.
-თითოეული ინფუთი არის Reusable და იყენებს Control Value Accessor_ს იმისთვის რომ გახდეს ფორმის ნაწილი.
-ვებსაიტის ინფუთზე მორგებულია Custom Validator, რომელიც ამოწმებს მისი მნიშვნელობა,
-იწყება თუ არა - 'www.' და მთავრდება '.com' ან '.ge'
+2.IMDB API Integration.
 
+-We can retrieve movies from the IMDB API with search functionality.
+An interceptor is used that adds a token to the request.
+*Note: *Due to many requests, the token may be expired and need to be replaced
 
-2.IMDB API ინტეგრაცია.
+3. Date format HH:mm:ss MMM dd yyyy.
 
--IMDB API-დან გვაქვს საშუალება წამოვიღოთ ფილმები ძებნის ფუნქციონალით.
-გამოყენებულია ინტერცეპტორი რომელიც რექვესთს ამატებს ტოკენს.
-*Note: *ბევრი რექვესთის გამო შეიძლება ტოკენი იყოს ვადაგასული და მისი ამოცვლა გახდეს საჭირო
+-A Custom Pipe has been created that checks the received input for a date
+and then transforms it according to the given format, which is used
 
+Moment.js: library.
 
-3.თარიღის ფორმატი  HH:mm:ss MMM dd yyyy.
+4. Calendar.
 
--შექმნილია Custom Pipe რომელი მიღებულ ინფუთს ამოწმებს არის თუ არა თარიღი
-და შემდეგ მას უკეთებს ტრანსფორმაციას მოცემული ფორმატის მიხედვით რაშიც გამოყენებულია
-Moment.js: ბიბლიოთეკა.
+-The component displays the current calendar month, shows the current day
+and makes predefined holidays visible.
 
-4.კალენდარი.
+5. Word comparison
 
--კომპონენტი გამოსახავს მიმდინარე კალენდარულ თვეს, გვაჩვენებს მიმდინარე დღეს
-და წინასწარ განსაზღვრულ დასვენების დღეებს ხდის თვალსაჩინოს.
-
-5.სიტყვების შედარება
-
--მოცემული სტრინგი ედრება მასივში არსებულ ყველა სტრინგ და შედეგად გამოგვაქვს,
-თუ რამდენი პროცენტი ემთხვევა ის მათ. ამისთვის გამოყენებულია ComapareTwoString 
-NPM package, ხოლო მისი პროცენტული გამოტანის და თვალსაჩინოებისთვის 
-Angular Material Progress bar. 
-
+-The given string is compared with all the strings in the array and as a result,
+it returns how many percent it matches them. For this, the ComapareTwoString
+NPM package is used, and for its percentage output and visibility,
+Angular Material Progress bar.

@@ -7,9 +7,9 @@
 
       <h3 mat-subheader>Job {{ i + 1 }}</h3>
 
-      <dga-input formControlName="companyName" [label]="'Company Name'" [placeholder]="'Enter company name'"></dga-input>
-      <dga-input [inValid]="companyWebsiteInvalid(i)" formControlName="companyWebsite" [label]="'Company Website'" [placeholder]="'Link company website'"></dga-input>
-      <dga-textarea formControlName="companyDescription" [label]="'Company Description'" [placeholder]="'Enter company description'"></dga-textarea>
+      <GITA-input formControlName="companyName" [label]="'Company Name'" [placeholder]="'Enter company name'"></GITA-input>
+      <GITA-input [inValid]="companyWebsiteInvalid(i)" formControlName="companyWebsite" [label]="'Company Website'" [placeholder]="'Link company website'"></GITA-input>
+      <GITA-textarea formControlName="companyDescription" [label]="'Company Description'" [placeholder]="'Enter company description'"></GITA-textarea>
 
       <button mat-raised-button color="primary" class="mt-2" (click)="addPosition(i)">Add Position</button>
 
@@ -18,13 +18,13 @@
 
           <h4 mat-subheader>Position {{ j + 1 }}</h4>
 
-          <dga-input formControlName="positionName" [label]="'Position Name'" [placeholder]="'Enter position name'"></dga-input>
+          <GITA-input formControlName="positionName" [label]="'Position Name'" [placeholder]="'Enter position name'"></GITA-input>
           
           <div class="flex gap-4 w-full">
-              <dga-dropdown class="w-1/2" formControlName="positionLevel" [data]="Positions" [placeholder]="'Position Level'" [label]="'Select a position'"></dga-dropdown>
+              <GITA-dropdown class="w-1/2" formControlName="positionLevel" [data]="Positions" [placeholder]="'Position Level'" [label]="'Select a position'"></GITA-dropdown>
               <app-date-range-picker class="w-1/2" formControlName="start_end_dates" [label]="'Select date range'"></app-date-range-picker>
           </div>
-          <dga-textarea formControlName="positionDescription" [label]="'Position Description'" [placeholder]="'Enter position description'"></dga-textarea>
+          <GITA-textarea formControlName="positionDescription" [label]="'Position Description'" [placeholder]="'Enter position description'"></GITA-textarea>
           
           <button mat-raised-button color="warn" class="mt-2" (click)="removePosition(i, j)">Remove Position</button>
 

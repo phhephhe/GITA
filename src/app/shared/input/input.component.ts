@@ -4,7 +4,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 
 @Component({
-  selector: 'dga-input',
+  selector: 'GITA-input',
   standalone: true,
   imports: [MatInputModule,CommonModule],
   templateUrl: './input.component.html',

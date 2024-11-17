@@ -4,7 +4,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 
 @Component({
-  selector: 'dga-textarea',
+  selector: 'GITA-textarea',
   standalone: true,
   imports: [MatInputModule,CommonModule],
   templateUrl: './textarea.component.html',

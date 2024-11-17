@@ -4,7 +4,7 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatCalendarCellCssClasses, MatDatepickerModule } from '@angular/material/datepicker';
 
 @Component({
-  selector: 'dga-calendar',
+  selector: 'GITA-calendar',
   standalone: true,
   providers: [provideNativeDateAdapter()],
   imports: [MatCardModule, MatDatepickerModule],

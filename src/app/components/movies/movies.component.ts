@@ -7,7 +7,7 @@ import { Observable, catchError, throwError } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
-  selector: 'dga-movies',
+  selector: 'GITA-movies',
   standalone: true,
   providers: [ImdbService],
   imports: [MatCardModule,CommonModule,FormsModule],

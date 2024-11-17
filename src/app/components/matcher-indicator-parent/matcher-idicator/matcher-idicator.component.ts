@@ -6,7 +6,7 @@ import { compareTwoStrings } from 'string-similarity';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @Component({
-  selector: 'dga-matcher-idicator',
+  selector: 'GITA-matcher-idicator',
   standalone: true,
   imports: [MatCardModule,CommonModule, MatListModule,MatProgressBarModule],
   templateUrl: './matcher-idicator.component.html',
