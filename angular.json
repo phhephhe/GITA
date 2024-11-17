@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "DGA_Task": {
+    "GITA": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -12,12 +12,12 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "dga",
+      "prefix": "gita",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/dga-task",
+            "outputPath": "dist/gita-task",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "DGA_Task:build:production"
+              "buildTarget": "GITA:build:production"
             },
             "development": {
-              "buildTarget": "DGA_Task:build:development"
+              "buildTarget": "GITA:build:development"
             }
           },
           "defaultConfiguration": "development"
